@@ -1,45 +1,113 @@
 import React, { useEffect, useState } from 'react';
+import {nextdate, stringdate} from '../../api/help';
 
 const Displaydiv = (props) => {
 
     const [dates, setDates] = useState({});
+    const [row,setRows]=useState([]);
 
 
     useEffect(() => {
 
-        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June","July", "Aug", "Sept", "Oct", "Nov", "Dec"];
         var today = new Date();
         var date=today.getDate();
         var year=today.getFullYear();
-        var month=monthNames[today.getMonth()];
+        var monthnum=today.getMonth()+1;
         // var nDate = date.slice(8, 10) + '-' + date.slice(5, 7) + '-' + date.slice(0, 4);
 
-        var dt = {
+        let datevalue = new Array();
+        let stringdt = new Array();
+        let stringmon = new Array();
 
-                dt1 : date+" "+month+" "+year,
-                dt2 : date+1+" "+month+" "+year, 
-                dt3 : date+2+" "+month+" "+year, 
-                dt4 : date+3+" "+month+" "+year, 
-                dt5 : date+4+" "+month+" "+year, 
-                dt6 : date+5+" "+month+" "+year, 
-                dt7 : date+6+" "+month+" "+year,
-                dtp1 : date+" "+"05"+" "+year,
-                dtp2 : date+1+" "+"05"+" "+year, 
-                dtp3 : date+2+" "+"05"+" "+year, 
-                dtp4 : date+3+" "+"05"+" "+year, 
-                dtp5 : date+4+" "+"05"+" "+year, 
-                dtp6 : date+5+" "+"05"+" "+year, 
-                dtp7 : date+6+" "+"05"+" "+year,
-                dtp: [date+" "+"05"+" "+year, 
-                        date+1+" "+"05"+" "+year, 
-                        date+2+" "+"05"+" "+year, 
-                        date+3+" "+"05"+" "+year, 
-                        date+4+" "+"05"+" "+year, 
-                        date+5+" "+"05"+" "+year, 
-                        date+6+" "+"05"+" "+year]
+
+        for(var i =0 ; i<7; i++)
+        {
+            let dv = {
+                date: date,
+                monthnum: monthnum,
+                year: year
+            }
+
+
+            var str = stringdate(date, monthnum, year, "num");
+            var str2 = stringdate(date, monthnum, year, "str");
+            stringdt.push(str);
+            stringmon.push(str2);
+            datevalue.push(dv);
+
+            let {rdate , rmonthnum, ryear} = nextdate(date, monthnum, year);
+            date = rdate;
+            monthnum = rmonthnum;
+            year = ryear;
         }
 
-        setDates(dt);
+        console.log(datevalue);
+        console.log(stringdt);
+        console.log(stringmon);
+
+        let center = props.centers;
+
+
+        for(var i=0 ; i<center.length ; i++)
+        {
+
+            const na = '<td><a href="/#" className="nbn">NA</a></td>';
+            const booked = '<td><a href="/#" className="bbn">Booked</a></td>' ;
+            const avl1 = '<td><a href="/#" className="avl">';
+            const avl2 = '</a></td>';
+
+            var dt = new Array();
+            let session = center[i].sessions;
+            
+            var j=0,k=0,l=0;
+
+            while(k<7)
+            {
+                if(session[j] === datevalue[k])
+                {
+                    if(session[j].available_capacity !== 0)
+                    {
+                        dt[k] = avl1 + session[j].available_capacity + avl2;
+                    }
+                    else
+                    {
+                        dt[k] = booked;
+                    }
+
+                    j++;
+                }
+                else
+                {
+                    dt[k] = na;
+                    k++;
+                }
+            }
+
+            
+            var [dt1, dt2, dt3, dt4, dt5, dt6, dt7] = dt;
+
+
+            let schema = {
+                stateName : center[i].name,
+                confirmed : center[i].address,
+                active : center[i].district_name,
+                deaths : center[i].state_name,
+                recovered : center[i].pincode,
+                dt1 : dt1,
+                dt2 : dt2,
+                dt3 : dt3,
+                dt4 : dt4,
+                dt5 : dt5,
+                dt6 : dt6,
+                dt7 : dt7,
+
+            }
+                        
+            setRows(prevState => [...prevState, schema]);
+        }
+
+        console.log(row);
+        
         console.log(dates);
         console.log(props.centers);
 
@@ -68,7 +136,9 @@ const Displaydiv = (props) => {
 
             return(
                 <tr>
-                    <td><div className="up">{info.name}</div><div className="down">{info.address}, {info.district_name}, {info.state_name}, {info.pincode}</div></td>
+                    <td>
+                    <div className="up">{info.name}</div>
+                    <div className="down">{info.address}, {info.district_name}, {info.state_name}, {info.pincode}</div></td>
                     {/* {
                         info.sessions.map((session, index) => {
                             if(session.date === dates.dtp[index])
@@ -107,6 +177,9 @@ const Displaydiv = (props) => {
         
 
     </table>
+
+
+    
     </div>
     )
 }

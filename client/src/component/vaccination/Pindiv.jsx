@@ -48,7 +48,7 @@ const Pindiv = () => {
         axios.post("/pinsearch", {pincode: input})
                 .then((response) => {
 
-                    console.log(response.data.name);
+                    console.log(response);
 
                     setCenters(response.data.centers);
 
