@@ -1,0 +1,533 @@
+.App {
+  text-align: center;
+  position: flex;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Coronavirus tracker class*/
+
+*{
+  margin: 0;
+}
+html{
+  width: 100%;
+  height: 100%;
+}
+body{
+  width: 100%;
+  height: 100%;
+}
+/* Navigation bar */
+
+.navbar{
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.navbar-brand{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav-item{
+  padding: 0 18px;
+}
+
+.nav-link{
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+/* Covid Cases Display */
+
+.caseinfocontainer{
+  padding-top: 80px;
+  padding-bottom: 140px;
+  /* background-image: url("images"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.casesinfo{
+  text-align: center;
+  margin: 15px;  
+  border-radius: 1rem;  
+  background-color: #61dafb;
+}
+.caseheading{
+  padding: 1rem;
+}
+.count{
+  padding: 2rem;
+}
+
+
+
+.about{
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+#myInput{
+  border-radius: 25px;
+  border: 2px solid;
+  padding: 10px;
+  justify-content: center;
+  /* margin: auto 50%; */
+  text-align: center;
+  font-size:20px;
+  width: 40rem;
+}
+
+.inputdiv{
+  margin-top: 60px;
+  margin-bottom: 20px;
+  position:static;
+}
+
+input:focus {outline:0;}
+
+
+
+
+#totalcases{
+  background-color: #C2CAD0;
+  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+}
+#recovered{
+  background-color: #AFD275;
+  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+}
+#deaths{
+  background-color:#E7717D;
+  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+}
+#vaccinated{
+  background-color: #C2B9B0;
+  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+}
+
+/* table styling */
+
+#mydatatable{
+  width: 100%;
+}
+
+.stateheading{
+  text-align: center;
+}
+
+.stateshow{
+  padding-top: 60px;
+}
+/* Medicine Page */
+
+.addLead{
+  margin-left: 20%;
+  margin-bottom: 10px;
+}
+
+
+/* Vaccnation Page Styling */
+
+
+.buttonContainer {
+  background-color: #474e5d;
+  border-radius: 25px;
+  
+  
+  width: 25rem;
+  height: 3rem;
+ 
+  
+  
+}
+.pinButtoncss {
+  border: none;
+  background-color: transparent;
+  float: left;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.districtButtoncss {
+  border: none;
+  background-color: transparent;
+  float: left;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+.toggleButton {
+  background-color:	#696969;
+  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  border-radius: 25px;
+  
+}
+button:focus {outline:0;}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+
+
+/* About Page Styling */
+
+footer {
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color: #343A40;
+  padding: 50px;
+}
+
+footer p {
+  color: #ccc;
+}
+
+
+
+.searchbtn{
+  margin-bottom: 60px;
+}
+
+.se
+{
+  border-radius: 25px;
+  border: 2px solid;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+  font-size:20px;
+  width: 46rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pin-btn
+{
+  border-radius: 15px;
+  color: black;
+  margin-left: 8px;
+  margin-top: 20px;
+  height: 50px;
+}
+
+
+.drop-down1
+{
+  margin-top: 40px;
+  margin-right: 6px;
+  width: 17rem;
+  height: 2rem;
+  outline: 0px solid transparent;
+}
+
+.drop-down2
+{
+  width: 17rem;
+  
+  margin-right: 20px;
+  margin-left: 6px;
+  height: 2rem;
+  margin-top: -38px;
+}
+
+.distsearch
+{
+  
+  margin-bottom :90px;
+}
+
+.toggle
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  top:30px;
+}
+
+
+.pinsearch{
+  margin-bottom: 60px;
+}
+
+
+div.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-bottom-left-radius: 90px;
+  border-top-left-radius: 90px;
+  float: left;
+  width: 400px;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+
+div.example{
+  margin:auto;
+  max-width:900px
+}
+
+div.example button {
+  float: left;
+  width: 100px;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  border-bottom-right-radius: 90px;
+  border-top-right-radius: 90px;
+  cursor: pointer;
+}
+
+div.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+div.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+.dist-btn
+{
+  background-color: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+
+
+/* Display Table result */
+
+
+
+
+table.displayresults
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border:none;
+    border-color: white;
+}
+  
+.displayresults td 
+{
+    border: 1px solid lightgrey;
+   
+    border-right:none;
+    border-left:none;
+    border-top:none;
+
+    text-align: left;
+    padding: 20px;
+}
+
+.displayresults th
+{
+    border: 1px solid lightgrey;
+   
+    border-right:none;
+    border-left:none;
+    border-top:none;
+
+    text-align: left;
+    padding: 20px;
+}
+
+
+/*  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+*/
+
+
+.up
+{
+    font-weight: normal;
+}
+  
+
+.down
+{
+    font-weight: lighter;
+    color:#998fa2;
+}
+
+.dt
+{
+    background: rgba(0,0,0,0.04);
+    padding: 20px 5px;
+}
+
+.bbn
+{
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: red;
+    padding: 0 8px;
+    display: flex;
+    width: 50px;
+    line-height: 20px;
+    margin-top: 5px;
+    border-radius: 50px;
+    align-content: center;
+    justify-content: center;
+    height: 20px;
+}
+
+
+.nbn
+{
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #f3f3f3;
+    padding: 0 8px;
+    display: flex;
+    width: 50px;
+    line-height: 20px;
+    margin-top: 5px;
+    border-radius: 50px;
+    align-content: center;
+    justify-content: center;
+    height: 20px;
+}
+
+
+.fbn
+{
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #a9d18e;
+    padding: 0 8px;
+    display: flex;
+    width: 50px;
+    line-height: 20px;
+    margin-top: 5px;
+    border-radius: 50px;
+    align-content: center;
+    justify-content: center;
+    height: 20px;
+}
+
+
+.cardcontainer
+{
+  margin-top: 90px;
+}
+
+
+
+
+
+
+/* 
+.data {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.data h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.data p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.data button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: #f5ba13;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+} */
