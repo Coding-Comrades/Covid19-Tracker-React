@@ -7,9 +7,13 @@ const Distdiv = () => {
 
     const [distlists, setDistlists] = useState([]);
     const [input, setInput] = useState("");
-    
-    const [centersinfo, setCentersinfo] = useState(null);
     const [Address, setAddress] = useState("");
+
+    const [dataavail, setDataavail] = useState(true);
+    const [centers, setCenters] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    
+    const [error, setError] = useState(false);
 
 
 
@@ -18,15 +22,37 @@ const Distdiv = () => {
         axios.post("/distsearch", {distcode: input})
             .then((response) => {
 
-                let center = response.data.centers;
-                
-                let address = center[0].block_name + ',' + center[0].address + ',' + center[0].district_name + ',' + center[0].state_name ;
-                setAddress(address);
-                console.log(Address);
+                console.log(response);
+
+                    setCenters(response.data.centers);
+
+                    console.log(centers);
+
+                    if(! response.centers)
+                    {
+                        setDataavail(false);
+                    }
+                    else{
+                        setDataavail(true);
+                    }
+
+                    if(response.data.name === "Error")
+                    {
+                        setError(true);
+                    }
+                    else
+                    {
+                        setError(false);
+                    }
+
+
+
+                    
+                    
+                    setIsLoading(false);
                 
             // console.log(response.data.centers);
             });
-            console.log(Address);
     }
 
 
@@ -92,7 +118,15 @@ const Distdiv = () => {
 
             </div>
 
-            <h1>{Address}</h1>
+            {isLoading && <p>Wait I'm Loading comments for you</p>}
+            
+
+                {(!isLoading) ? 
+                    <Displaydiv 
+                        centers={centers}
+                    /> :
+                    <h1>Give correct data</h1>
+                }
             
         </div>
     )

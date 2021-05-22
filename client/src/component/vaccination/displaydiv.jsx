@@ -3,12 +3,14 @@ import {nextdate, stringdate} from '../../api/help';
 
 const Displaydiv = (props) => {
 
-    const [dates, setDates] = useState({});
+    const [dates, setDates] = useState([]);
     const [row,setRows]=useState([]);
 
 
     useEffect(() => {
 
+        setRows([]);
+        setDates([]);
         var today = new Date();
         var date=today.getDate();
         var year=today.getFullYear();
@@ -19,6 +21,9 @@ const Displaydiv = (props) => {
         let stringdt = new Array();
         let stringmon = new Array();
 
+        setDates(stringmon);
+
+
 
         for(var i =0 ; i<7; i++)
         {
@@ -27,7 +32,6 @@ const Displaydiv = (props) => {
                 monthnum: monthnum,
                 year: year
             }
-
 
             var str = stringdate(date, monthnum, year, "num");
             var str2 = stringdate(date, monthnum, year, "str");
@@ -41,58 +45,77 @@ const Displaydiv = (props) => {
             year = ryear;
         }
 
-        console.log(datevalue);
-        console.log(stringdt);
-        console.log(stringmon);
+        // console.log(datevalue);
+        // console.log(stringdt);
+        // console.log(stringmon);
 
         let center = props.centers;
+
+
+        const na = '<a href="/#" class="nbn">NA</a>';
+        const booked = '<a href="/#" class="bbn">Booked</a>' ;
+        const avl1 = '<a href="/#" class="avl">';
+        const avl2 = '</a>';
 
 
         for(var i=0 ; i<center.length ; i++)
         {
 
-            const na = '<td><a href="/#" className="nbn">NA</a></td>';
-            const booked = '<td><a href="/#" className="bbn">Booked</a></td>' ;
-            const avl1 = '<td><a href="/#" className="avl">';
-            const avl2 = '</a></td>';
-
-            var dt = new Array();
+            var dt = new Array(7).fill(na);
             let session = center[i].sessions;
             
-            var j=0,k=0,l=0;
+            // console.log(center[i]);
 
-            while(k<7)
+            // console.log(session)
+            
+
+            for(var j=0 ; j< session.length ; j++)
             {
-                if(session[j] === datevalue[k])
+                for(var k = 0; k<7; k++)
                 {
-                    if(session[j].available_capacity !== 0)
+                    if(session[j].date === stringdt[k])
                     {
-                        dt[k] = avl1 + session[j].available_capacity + avl2;
+                        if(session[j].available_capacity !== 0)
+                        {
+                            if(dt[k] === na)
+                            {  
+                                dt[k] = avl1 + session[j].available_capacity + avl2;
+                            }
+                            else
+                            {
+                                var avl = avl1 + session[j].available_capacity + avl2 ;
+                                dt[k] = dt[k].concat(avl);
+                            }
+                        }
+                        else
+                        {
+                            if(dt[k] === na)
+                            {  
+                                dt[k] = booked;
+                            }
+                            else
+                            {
+                                dt[k] = dt[k].concat(booked);
+                            }
+                        }
                     }
-                    else
-                    {
-                        dt[k] = booked;
-                    }
-
-                    j++;
                 }
-                else
-                {
-                    dt[k] = na;
-                    k++;
-                }
+                
             }
 
+            // console.log(dt)
             
             var [dt1, dt2, dt3, dt4, dt5, dt6, dt7] = dt;
 
+            // console.log(dt1, dt2, dt3, dt4, dt5, dt6, dt7)
+
 
             let schema = {
-                stateName : center[i].name,
-                confirmed : center[i].address,
-                active : center[i].district_name,
-                deaths : center[i].state_name,
-                recovered : center[i].pincode,
+                name : center[i].name,
+                address : center[i].address,
+                district_name : center[i].district_name,
+                state_name : center[i].state_name,
+                pincode : center[i].pincode,
                 dt1 : dt1,
                 dt2 : dt2,
                 dt3 : dt3,
@@ -108,10 +131,10 @@ const Displaydiv = (props) => {
 
         console.log(row);
         
-        console.log(dates);
-        console.log(props.centers);
+        // console.log(dates);
+        // console.log(props.centers);
 
-    }, [])
+    }, [props])
 
 
     return (
@@ -120,58 +143,42 @@ const Displaydiv = (props) => {
         <thead>
             <tr>
                 <th width="200"></th>
-                <th width="100"><div className="dt" >{dates.dt1}</div></th>
-                <th width="100"><div className="dt" >{dates.dt2}</div></th>
-                <th width="100"><div className="dt" >{dates.dt3}</div></th>
-                <th width="100"><div className="dt" >{dates.dt4}</div></th>
-                <th width="100"><div className="dt" >{dates.dt5}</div></th>
-                <th width="100"><div className="dt" >{dates.dt6}</div></th>
-                <th width="100"><div className="dt" >{dates.dt7}</div></th>
+                {
+                    dates.map((date , index) => {
+                        return(
+                            <th width="100"><div className="dt" >{date}</div></th>
+                        );
+                    })
+                }
+             
             </tr>
         </thead>
         
         <tbody>
 
-        {props.centers.map((info, index) => {
 
-            return(
-                <tr>
-                    <td>
-                    <div className="up">{info.name}</div>
-                    <div className="down">{info.address}, {info.district_name}, {info.state_name}, {info.pincode}</div></td>
-                    {/* {
-                        info.sessions.map((session, index) => {
-                            if(session.date === dates.dtp[index])
-                            {
-                                if(session.available_capacity >= 1)
-                                {
-                                    <td><a class="fbn">{session.available_capacity}</a></td>
-                                }
-                                else
-                                {
-                                    <td><a href="/#" className="bbn">Booked</a></td>
-                                }
-                                
-                            }
-                            else
-                            {
-                                <td><a href="/#" className="nbn">NA</a></td>
-                            }
-                        })
-                    } */}
-                     <td><a href="/#" className="bbn">Booked</a></td>
-                    <td><a href="/#" className="nbn">NA</a></td>
-                    <td><a href="/#" className="nbn">NA</a></td>
-                    
-                    <td><a href="/#" className="nbn">NA</a></td>
-                    <td><a href="/#" className="nbn">NA</a></td>
-                    <td><a href="/#" className="nbn">NA</a></td>
-                    <td><a href="/#" className="nbn">NA</a></td> 
-                </tr>
-               
-            );
+        {
+            row.map((info, index) => {
+                return(
+                    <tr>
+                        <td>
+                            <div className="up">{info.name}</div>
+                            <div className="down">{info.address}, {info.district_name}, {info.state_name}, {info.pincode}</div>
+                        </td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt1}}></td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt2}}></td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt3}}></td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt4}}></td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt5}}></td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt6}}></td>
+                        <td dangerouslySetInnerHTML={{__html: info.dt7}}></td>
+                    </tr>
+                
+                )
+            })
+        }
 
-        })}
+      
         </tbody>
 
         
