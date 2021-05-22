@@ -1,11 +1,10 @@
 import React from 'react';
-import DbForm from './DbForm';
 import DbData from './DbData';
 
-const Resources = () => {
+const Resources = ({location}) => {
+
     return (
         <>
-            <DbForm />
             <DbData />
         </>
     )

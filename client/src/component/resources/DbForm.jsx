@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+
+import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
 const DbForm = () => {
 
-
+  let history = useHistory();
   const [addlead, setAddlead] = useState({
     storeName: "", district: "", address: "", contact: "", medicine: ""
   });
@@ -15,8 +17,8 @@ const DbForm = () => {
     
     name = event.target.name;
     value = event.target.value;
-    console.log(name);
-    console.log(value);
+    // console.log(name);
+    // console.log(value);
     setAddlead({...addlead, [name]:value});
 
   }
@@ -24,7 +26,6 @@ const DbForm = () => {
   function handleSubmit(event)
   {
     event.preventDefault();
-    window.location.reload(true);
         axios.post("/addlead", {storeName : addlead.storeName , 
           district : addlead.district,
           address : addlead.address,
@@ -34,6 +35,11 @@ const DbForm = () => {
           .then((response) => {
           console.log(response);
 
+          // window.confirm("data saved");
+
+          history.push("/medicines");
+          // history.push("/medicines", {from: "DbForm"});
+
           });
   }
 
@@ -42,7 +48,7 @@ const DbForm = () => {
 
 
     return (
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -88,7 +94,6 @@ const DbForm = () => {
       </form>
       </div>
     </div>
-  </div>
     )
 }
 

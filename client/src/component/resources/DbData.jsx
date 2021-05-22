@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import Datacard from './Datacard';
 
@@ -41,8 +43,8 @@ const DbData = () => {
         <div>
                 <div class="container mb-3 mt-3">
                     <input type="text" name="" id="myInput" placeholder="Search Your Medicine/Oxygen Lead" onkeyup="search()" />
-                    <button type="button" class="btn btn-dark addLead" data-toggle="modal" data-target="#exampleModal">
-                        Add Lead
+                    <button type="button" class="btn btn-dark addLead">
+                    <NavLink className="nav-link" to="/addlead">Add Lead</NavLink>
                     </button>
 
                     <div className="cardcontainer mb-3 mt-3">

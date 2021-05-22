@@ -130,7 +130,7 @@ input:focus {outline:0;}
 
 
 #totalcases{
-  background-color: #C2CAD0;
+  background-color: `;
   box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
 -webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);

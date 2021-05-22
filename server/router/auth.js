@@ -5,20 +5,6 @@ const _ = require("lodash");
 
 
 
-// const dbUrl = 'mongodb+srv://covid19tracker:xd5duo5vZHG9BpnX@cluster0.bt3xj.mongodb.net/covid19trackerdb?retryWrites=true&w=majority';
-// mongoose.connect(dbUrl,  { useNewUrlParser: true, useUnifiedTopology: true, 'useFindAndModify': false});
-
-
-// const storeSchema = mongoose.Schema({
-//     name : String,
-//     address : String,
-//     contact : String,
-//     medicine : String,
-//     district : String
-// });
-
-// const Store = mongoose.model('Store', storeSchema);
-
 const Store = require('../model/storeSchema');
 
 
