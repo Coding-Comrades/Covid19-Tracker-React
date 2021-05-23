@@ -118,14 +118,14 @@ const Distdiv = () => {
 
             </div>
 
-            {isLoading && <p>Wait I'm Loading comments for you</p>}
+            
             
 
                 {(!isLoading) ? 
                     <Displaydiv 
                         centers={centers}
                     /> :
-                    <h1>Give correct data</h1>
+                    <h1></h1>
                 }
             
         </div>

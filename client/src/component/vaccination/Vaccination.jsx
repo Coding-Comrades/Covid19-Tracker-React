@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import Pindiv from './Pindiv';
 import Distdiv from './Distdiv';
 
@@ -23,7 +24,14 @@ const Vaccination = () => {
 
     return (
         <div>
-            <h1 className="d-flex justify-content-center">Vaccination</h1>
+            <div>
+                <h1 className="d-flex justify-content-center add">Vaccination</h1>
+                <button type="button" class="btn btn-dark addLead vad">
+                    <NavLink className="nav-link" to="/vform">Notify Me</NavLink>
+                </button>
+            </div>
+
+            
 
             <div className="container-fluid d-flex justify-content-center searchbtn">
                     <div className="buttonContainer">
@@ -45,4 +53,3 @@ const Vaccination = () => {
 }
 
 export default Vaccination;
-;

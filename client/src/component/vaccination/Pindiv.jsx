@@ -89,14 +89,14 @@ const Pindiv = () => {
                     <button type="button" onClick={handleClick} ><i class="fa fa-search"></i></button>
             </div>
 
-            {isLoading && <p>Wait I'm Loading comments for you</p>}
+            
             
 
                 {(!isLoading) ? 
                     <Displaydiv 
                         centers={centers}
                     /> :
-                    <h1>Give correct data</h1>
+                    <h1></h1>
                 }
 
 

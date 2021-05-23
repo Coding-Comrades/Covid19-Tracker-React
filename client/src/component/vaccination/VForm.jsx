@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
-const DbForm = () => {
+const VForm = () => {
 
   let history = useHistory();
-  const [addlead, setAddlead] = useState({
-    storeName: "", district: "", address: "", contact: "", medicine: ""
+  const [vform, setvform] = useState({
+    userName: "", email: "", pin: ""
   });
 
   let name, value;
@@ -19,25 +19,23 @@ const DbForm = () => {
     value = event.target.value;
     // console.log(name);
     // console.log(value);
-    setAddlead({...addlead, [name]:value});
+    setvform({...vform, [name]:value});
 
   }
 
   function handleSubmit(event)
   {
     event.preventDefault();
-        axios.post("/addlead", {storeName : addlead.storeName , 
-          district : addlead.district,
-          address : addlead.address,
-          contact : addlead.contact,
-          medicine : addlead.medicine
+        axios.post("/form", {userName : vform.userName , 
+          email : vform.email,
+          pin : vform.pin,
           })
           .then((response) => {
           console.log(response);
 
           // window.confirm("data saved");
 
-          history.push("/medicines");
+          history.push("/vaccination");
           // history.push("/medicines", {from: "DbForm"});
 
           });
@@ -48,7 +46,8 @@ const DbForm = () => {
 
 
     return (
-        /*
+    
+      /*
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -97,57 +96,60 @@ const DbForm = () => {
     */
 
 
-
     <form method="POST" onSubmit={handleSubmit}>
-    <div class="registration-form">
-        <form>
-            
-            <div class="form-group">
+      <div class="registration-form">
+          <form>
               
-              <input type="text" name="storeName" class="form-control item" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Store Name" value={addlead.storeName} onChange={handleInput} required />
-            </div>
+              
+              <div class="form-group">
+                  <input type="text" class="form-control item" id="email" placeholder="Email" value={vform.email} onChange={handleInput} required  />
+              </div>
 
-            
-            <div class="form-group">
-              <input type="text" name="district" class="form-control item" id="exampleInputPassword1" placeholder="District" value={addlead.district} onChange={handleInput}  required />
-            </div>
-
-            <div class="form-group">
-              <input type="text" name="address" class="form-control item" id="exampleInputPassword1" placeholder="Address" value={addlead.address} onChange={handleInput}  required />
-            </div>
-
-            <div class="form-group">
-              <input type="text" name="contact" class="form-control item" id="exampleInputPassword1" placeholder="Contact" value={addlead.contact} onChange={handleInput}  required />
-            </div>
-
-            <div class="form-group">
-              <input type="text" name="medicine" class="form-control item" id="exampleInputPassword1" placeholder="Medicines/Health Kit"   value={addlead.medicine} onChange={handleInput}  required />
-            </div>
-
-            <div class="form-group">
-                <button type="button" class="btn btn-block create-account">Notify Me</button>
-            </div>
-        </form>
-        
-
-        
-    </div>
-    </form>
+              <div class="form-group">
+                  <input type="text" class="form-control item" id="phone-number" placeholder="Pincode" value={vform.pin} onChange={handleInput} required />
+              </div>
 
 
+              <div class="form-group">
+                  <button type="button" class="btn btn-block create-account">Notify Me</button>
+              </div>
+          </form>
+          
 
-
-
-
-
-
-
-
-
+          
+      </div>
+      </form>
 
 
 
     )
 }
 
-export default DbForm;
+export default VForm;
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+<div class="social-media">
+<h5>Sign up with social media</h5>
+<div class="social-icons">
+    <a href="www.facebook.com"><i class="fa fa-facebook" title="Facebook"></i></a>
+    <a href="www.google.com"><i class="fa fa-google" title="Google"></i></a>
+    <a href="www.twitter.com"><i class="fa fa-twitter" title="Twitter"></i></a>
+</div>
+</div>
+
+
+
+
+*/
