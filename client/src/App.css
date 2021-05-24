@@ -54,15 +54,18 @@ body{
   height: 100%;
 }
 /* Navigation bar */
-
+.navbarvw{
+  width: 100vw;
+}
 .navbar{
   padding-left: 25px;
   padding-right: 25px;
 }
 .navbar-brand{
   font-family: 'Ubuntu', sans-serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
+  text-shadow: 2px 8px 7px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
 }
 
 .nav-item{
@@ -79,8 +82,9 @@ body{
 
 .caseinfocontainer{
   padding-top: 80px;
-  padding-bottom: 140px;
-  /* background-image: url("images"); */
+  height: 100vh;
+  background-image: url("./component/home/image/covidbg3.jpg");
+  position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -88,14 +92,20 @@ body{
 .casesinfo{
   text-align: center;
   margin: 15px;  
+  height: 15rem;
+  width: 30rem;
+
   border-radius: 1rem;  
-  background-color: #61dafb;
+
+  /* box-shadow: 2px 8px 6px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966); */
 }
 .caseheading{
   padding: 1rem;
 }
 .count{
-  padding: 2rem;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  float: left;
 }
 
 
@@ -128,30 +138,40 @@ input:focus {outline:0;}
 
 
 
+.MuiSvgIcon-root{
+  height: 40px;
+  padding-right: 15px;
+}
+
+.decrease{
+  transform: rotateX(180deg);
+}
+
 
 #totalcases{
-  /*background-color: ;*/
-  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  
+  background-color: #61dafb;
+  box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-webkit-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-moz-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
 }
 #recovered{
   background-color: #AFD275;
-  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-webkit-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-moz-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
 }
 #deaths{
   background-color:#E7717D;
-  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-webkit-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-moz-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
 }
 #vaccinated{
   background-color: #C2B9B0;
-  box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -4px 6px 12px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-webkit-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
+-moz-box-shadow: 2px 8px 15px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966);
 }
 
 /* table styling */

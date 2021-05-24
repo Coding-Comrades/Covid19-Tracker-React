@@ -48,7 +48,7 @@ const StatecaseContainer = () => {
             <Select />
 
             <div  className="panel panel-default table-responsive">
-            <table id="mydatatable" className="table table-striped table-bordered">
+            <table id="mydatatable" className="table table-bordered">
 
                 <thead>
                     <tr>
