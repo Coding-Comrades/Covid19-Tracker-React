@@ -42,7 +42,7 @@ function Home(){
 
     return (
         <>
-            <div className="row row-cols-1 row-cols-md-4 justify-content-center caseinfocontainer caseinfocontainer">
+            <div className="row row-cols-1 row-cols-md-4 justify-content-center caseinfocontainer">
 
                 <Casebox 
                     caseId="totalcases" 
@@ -66,8 +66,9 @@ function Home(){
                 />
         
             </div>
-
             <StatecaseContainer />
+
+            
         </>
 
     )

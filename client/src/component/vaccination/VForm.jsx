@@ -7,7 +7,7 @@ const VForm = () => {
 
   let history = useHistory();
   const [vform, setvform] = useState({
-    userName: "", email: "", pin: ""
+    email: "", pin: ""
   });
 
   let name, value;
@@ -26,8 +26,7 @@ const VForm = () => {
   function handleSubmit(event)
   {
     event.preventDefault();
-        axios.post("/form", {userName : vform.userName , 
-          email : vform.email,
+        axios.post("/form", {email : vform.email,
           pin : vform.pin,
           })
           .then((response) => {
@@ -96,17 +95,17 @@ const VForm = () => {
     */
 
 
-    <form method="POST" onSubmit={handleSubmit}>
+    <form method="POST" onSubmit={handleSubmit} >
       <div class="registration-form">
           <form>
               
               
               <div class="form-group">
-                  <input type="text" class="form-control item" id="email" placeholder="Email" value={vform.email} onChange={handleInput} required  />
+                  <input type="text" class="form-control item" id="email" placeholder="Email" value={vform.email} onChange={handleInput} autocomplete="off" required  />
               </div>
 
               <div class="form-group">
-                  <input type="text" class="form-control item" id="phone-number" placeholder="Pincode" value={vform.pin} onChange={handleInput} required />
+                  <input type="text" class="form-control item" id="phone-number" placeholder="Pincode" value={vform.pin} onChange={handleInput} autocomplete="off" required />
               </div>
 
 

@@ -47,17 +47,17 @@ const StatecaseContainer = () => {
 
             <Select />
 
-            <div  className="panel panel-default table-responsive">
+            <div  className="panel panel-default table-responsive tablecss">
             <table id="mydatatable" className="table table-bordered">
 
                 <thead>
                     <tr>
-                        <th>Serial no.</th>
-                        <th>State Name</th>
-                        <th>Confirmed</th>
-                        <th>Active</th>
-                        <th>Deaths</th>
-                        <th>Recovered</th>
+                        <th Style="background-color:#f7dfdf;">Serial no.</th>
+                        <th Style="background-color:#f7dfdf;">State Name</th>
+                        <th Style="background-color:#61dafb;">Confirmed</th>
+                        <th Style="background-color:#6c757d;">Active</th>
+                        <th Style="background-color:#ed5249;">Deaths</th>
+                        <th Style="background-color:#afd275;">Recovered</th>
                     </tr>
                 </thead>
                 <tbody>

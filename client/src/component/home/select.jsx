@@ -31,7 +31,7 @@ const Select = () => {
 
     return (
         <div className="d-flex justify-content-center inputdiv">
-            <input type="text" name="" id="myInput" placeholder="Search Your State" onKeyUp={search}></input>
+            <input type="text" name="" id="myInput" placeholder="Search Your State" onKeyUp={search} autocomplete="off"></input>
         </div>
     )
 }
