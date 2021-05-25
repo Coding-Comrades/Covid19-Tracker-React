@@ -47,7 +47,7 @@ const DbData = () => {
                     <NavLink className="nav-link" to="/addlead">Add Lead</NavLink>
                     </button>
 
-                    <div className="cardcontainer mb-3 mt-3">
+                    <div style={{padding : "%7 5%"}}  className="row">
                         {listData.map((data, index) => {
 
                             return(
