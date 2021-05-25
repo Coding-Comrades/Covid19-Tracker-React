@@ -82,29 +82,41 @@ body{
 
 .caseinfocontainer{
   padding-top: 80px;
-  height: 100vh;
+  min-height: 100vh;
+
   background-image: url("./component/home/image/covidbg3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.caseinfomargin{
+  margin: 0px 20px;
 }
 .casesinfo{
   text-align: center;
   margin: 15px;  
   height: 15rem;
   width: 30rem;
-
+  margin-left: 40px;
+  margin-right: 40px;
   border-radius: 1rem;  
 
   /* box-shadow: 2px 8px 6px rgba(255, 255, 255, 0.911), 0px -5px 35px rgba(252, 252, 252, 0.966); */
 }
 .caseheading{
   padding: 1rem;
+  font-style: bold;
+    font-weight: 700;
 }
 .count{
   padding-top: 40px;
   padding-bottom: 20px;
   float: left;
+  font-style: bold;
+    font-weight: 400;
+    font-size:xx-large;
+    font-family: 'Copse', serif;
 }
 
 
@@ -184,11 +196,38 @@ input:focus {outline:0;}
 }
 
 
-.tablecss{
+.tabledivcss{
   box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
   margin-top: 60px;
   margin-bottom: 70px;
   border-radius: 19px;
+}
+table.tablecss {
+  border-collapse: collapse;
+}
+table.tablecss td {
+  font-style: bold;
+    font-weight: 400;
+    font-size:large;
+    font-family: 'Old Standard TT', serif;
+}
+table.tablecss tr:first-child td {
+  border-top: 0;
+}
+table.tablecss tr td:first-child {
+  border-left: 0;
+}
+table.tablecss tr:last-child td {
+  border-bottom: 0;
+}
+table.tablecss tr td:last-child {
+  border-right: 0;
+}
+
+table.tablecss th {
+  font-style: bold;
+    font-weight: 700;
+    font-size:x-large;
 }
 
 .stateheading{
@@ -565,6 +604,10 @@ tr:nth-child(even) {
 } */
 
 
+.vaccination-container{
+  height: 78vh;
+}
+
 .add
 {
   padding:40px;
@@ -630,7 +673,14 @@ tr:nth-child(even) {
     background-color: #5791ff;
     border: none;
     color: white;
-    margin-top: 20px;
+    margin-top: 30px;
+    width: 150px;
+  }
+
+  #addleadh1{
+    margin-bottom: 50px;
+    font-style: bold;
+    font-weight: 700;
   }
   
   .registration-form .social-media{

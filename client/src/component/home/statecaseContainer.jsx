@@ -47,8 +47,8 @@ const StatecaseContainer = () => {
 
             <Select />
 
-            <div  className="panel panel-default table-responsive tablecss">
-            <table id="mydatatable" className="table table-bordered">
+            <div  className="panel panel-default table-responsive tabledivcss">
+            <table id="mydatatable" className="table table-bordered tablecss">
 
                 <thead>
                     <tr>

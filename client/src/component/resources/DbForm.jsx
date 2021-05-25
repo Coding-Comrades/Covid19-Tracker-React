@@ -100,32 +100,35 @@ const DbForm = () => {
 
     <form method="POST" onSubmit={handleSubmit}>
     <div class="registration-form">
+
+      
         <form>
             
             <div class="form-group">
+            <h1 id="addleadh1">ADD LEAD FORM</h1>
               
-              <input type="text" name="storeName" class="form-control item" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Store Name" value={addlead.storeName} onChange={handleInput} required />
+              <input type="text" name="storeName" class="form-control item" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Store Name" value={addlead.storeName} autoComplete="off" onChange={handleInput} required />
             </div>
 
             
             <div class="form-group">
-              <input type="text" name="district" class="form-control item" id="exampleInputPassword1" placeholder="District" value={addlead.district} onChange={handleInput}  required />
+              <input type="text" name="district" class="form-control item" id="exampleInputPassword1" placeholder="District" value={addlead.district} onChange={handleInput} autoComplete="off" required />
             </div>
 
             <div class="form-group">
-              <input type="text" name="address" class="form-control item" id="exampleInputPassword1" placeholder="Address" value={addlead.address} onChange={handleInput}  required />
+              <input type="text" name="address" class="form-control item" id="exampleInputPassword1" placeholder="Address" value={addlead.address} onChange={handleInput} autoComplete="off" required />
             </div>
 
             <div class="form-group">
-              <input type="text" name="contact" class="form-control item" id="exampleInputPassword1" placeholder="Contact" value={addlead.contact} onChange={handleInput}  required />
+              <input type="text" name="contact" class="form-control item" id="exampleInputPassword1" placeholder="Contact" value={addlead.contact} onChange={handleInput} autoComplete="off" required />
             </div>
 
             <div class="form-group">
-              <input type="text" name="medicine" class="form-control item" id="exampleInputPassword1" placeholder="Medicines/Health Kit"   value={addlead.medicine} onChange={handleInput}  required />
+              <input type="text" name="medicine" class="form-control item" id="exampleInputPassword1" placeholder="Medicines/Health Kit"   value={addlead.medicine} autoComplete="off" onChange={handleInput}  required />
             </div>
 
-            <div class="form-group">
-                <button type="button" class="btn btn-block create-account">Notify Me</button>
+            <div class="form-group d-flex justify-content-center">
+                <button type="button" class="btn btn-block create-account">ADD LEAD</button>
             </div>
         </form>
         

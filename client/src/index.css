@@ -3,6 +3,7 @@ html, body, #root {
     height: 100%;
     position: flex;
     overflow-x: hidden;
+    font-family: 'Crimson Text', serif;
 }
 body {
   margin: 0;

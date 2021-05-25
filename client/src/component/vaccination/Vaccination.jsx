@@ -23,9 +23,10 @@ const Vaccination = () => {
 
 
     return (
-        <div>
+        <div className="vaccination-container">
             <div>
-                <h1 className="d-flex justify-content-center add">Vaccination</h1>
+                <h1 className="d-flex justify-content-center add" Style="font-style: bold;
+    font-weight: 700;">Vaccination</h1>
                 <button type="button" class="btn btn-dark addLead vad">
                     <NavLink className="nav-link" to="/vform">Notify Me</NavLink>
                 </button>

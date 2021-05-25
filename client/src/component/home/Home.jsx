@@ -42,8 +42,8 @@ function Home(){
 
     return (
         <>
-            <div className="row row-cols-1 row-cols-md-4 justify-content-center caseinfocontainer">
-
+            <div className=" caseinfocontainer">
+            <div className="row row-cols-1 row-cols-md-4 justify-content-center caseinfomargin">
                 <Casebox 
                     caseId="totalcases" 
                     caseHeading="Infected"
@@ -64,6 +64,7 @@ function Home(){
                     caseHeading="Vaccinated"
                     caseCount={formatnos(vaccinated)}
                 />
+                </div>
         
             </div>
             <StatecaseContainer />

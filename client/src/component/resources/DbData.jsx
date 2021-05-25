@@ -42,7 +42,9 @@ const DbData = () => {
     return (
         <div>
                 <div class="container mb-3 mt-3">
-                    <input type="text" name="" id="myInput" placeholder="Search Your Medicine/Oxygen Lead" onkeyup="search()" />
+                <div class="d-flex justify-content-center inputdiv">
+                    <input type="text" name="" id="myInput" placeholder="Search Your Medicine/Oxygen Lead" autoComplete="off" onkeyup="search()" />
+                    </div>
                     <button type="button" class="btn btn-dark addLead">
                     <NavLink className="nav-link" to="/addlead">Add Lead</NavLink>
                     </button>
