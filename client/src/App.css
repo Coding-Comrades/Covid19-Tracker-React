@@ -229,9 +229,15 @@ table.tablecss th {
     font-weight: 700;
     font-size:x-large;
 }
-
+td[colspan="2"]:hover {
+  background: gold;
+}
 .stateheading{
   text-align: center;
+  font-style: bold;
+    font-weight: 700;
+    
+    font-size:xxx-large;
 }
 
 .stateshow{
