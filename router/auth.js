@@ -7,7 +7,7 @@ const _ = require("lodash");
 
 const Store = require('../model/storeSchema');
 
-
+const USERAGENT = process.env.USERAGENT;
 router.post("/addlead",function(req,res){
     const storeName = req.body.storeName;
     const storeDistrict = _.capitalize(req.body.district);
@@ -62,7 +62,7 @@ router.post('/pinsearch', (req, res) => {
         headers: {
             'accept': 'application/json',
             'Accept-Language': 'hi_IN',
-            'User-Agent': 'hvs42'
+            'User-Agent': USERAGENT
         }
       };
       
@@ -90,7 +90,7 @@ router.post('/distsearch', (req, res) => {
         headers: {
             'accept': 'application/json',
             'Accept-Language': 'hi_IN',
-            'User-Agent': 'covid19'
+            'User-Agent': USERAGENT
         }
       };
       
